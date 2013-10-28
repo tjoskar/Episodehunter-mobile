@@ -1,0 +1,36 @@
+<div class="background"></div>
+
+<div class="ui active dimmer" style="display: none;">
+  <div class="ui text loader">Loading</div>
+</div>
+
+<div class="box">
+  <div class="ui form">
+    <form ng-submit="login()">
+      <div class="field">
+        <div class="ui left labeled icon input">
+          <input type="text" placeholder="Username" ng-model="credentials.username">
+          <i class="user icon"></i>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left labeled icon input">
+          <input type="password" placeholder="Password" ng-model="credentials.password">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="ui green small submit button" ng-click="login()">Login</div>
+    </form>
+  </div>
+</div>
+
+<div class="alert error" ng-show="error.isShowing()" ng-click="error.hide()">
+  <h1>
+    {{ error.getHeader() }}
+  </h1>
+  <ul class="ul list">
+    <li ng-repeat="msg in error.getMesage()">
+      {{msg}}
+    </li>
+  </ul>
+</div>

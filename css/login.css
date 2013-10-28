@@ -1,0 +1,73 @@
+@-webkit-keyframes slideshow
+{
+    0%   {background-image: url(../img/gotposter.jpg)}
+    15%  {background-image: url(../img/gotposter.jpg)}
+    25%  {background-image: url(../img/twdposter.jpg)}
+    40%  {background-image: url(../img/twdposter.jpg)}
+    50%  {background-image: url(../img/dexterposter.jpg)}
+    65%  {background-image: url(../img/dexterposter.jpg)}
+    75%  {background-image: url(../img/beakingbadposter.jpg)}
+    90%  {background-image: url(../img/beakingbadposter.jpg)}
+    100% {background-image: url(../img/gotposter.jpg)}
+}
+body.login {
+    background-color: #242424;
+}
+
+.login .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../img/gotposter.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    opacity: .2;
+    animation: slideshow 40s;
+    animation-iteration-count: infinite;
+    -webkit-animation: slideshow 40s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: slideshow 40s;
+    -moz-animation-iteration-count: infinite;
+}
+
+.login .box {
+    position: absolute;
+
+    margin: auto;
+    padding: 20px 20px 20px 20px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 75%;
+    height: 12em;
+    background-color: #fff;
+
+    z-index: 10;
+
+    border-radius: 3px;
+    border-top: 5px solid #27ae60;
+    animation: frames 10s;
+    animation-iteration-count: infinite;
+    -webkit-animation: frames 10s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: frames 10s;
+    -moz-animation-iteration-count: infinite;
+    overflow: hidden;
+}
+
+.login #header {
+    display: none;
+}
+
+.login .sidebar {
+    display: none;
+}
