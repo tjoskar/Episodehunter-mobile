@@ -1,5 +1,5 @@
-/* global EH: true*/
-EH.factory('menu', function() {
+/* global EHM: true*/
+EHM.factory('menu', function() {
   var activate = 'upcoming';
   return {
     set: function(state) {

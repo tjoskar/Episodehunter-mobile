@@ -1,5 +1,4 @@
-/* global EH: true*/
-EH.factory('error', function() {
+EHM.factory('error', function() {
   var error = {
     show: false,
     header: '',
@@ -25,9 +24,9 @@ EH.factory('error', function() {
       return error.header;
     },
     setMesage: function(mesages) {
-      if (mesages instanceof Array) {
+      if (EH.isArray(mesages)) {
         error.mesages = mesages;
-      } else if (typeof mesages === 'string' || mesages instanceof String) {
+      } else if (EH.isString(mesages)) {
         error.mesages.push(mesages);
       }
       return this;

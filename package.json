@@ -1,6 +1,6 @@
 {
-  "name": "EpisodeHunter Mobile",
-  "version": "0.2.0",
+  "name": "EpisodeHunter-Mobile",
+  "version": "0.0.5",
   "author": {
     "name": "Oskar Karlsson",
     "email": "kontakta@oskarkarlsson.nu",
@@ -20,34 +20,6 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-watch": "~0.5.2",
-    "grunt-contrib-clean": "~0.5.0"
-  },
-  "jshintConfig": {
-    "bitwise": true,
-    "camelcase": true,
-    "curly": true,
-    "eqeqeq": true,
-    "indent": 2,
-    "latedef": true,
-    "newcap": true,
-    "noarg": true,
-    "noempty": true,
-    "quotmark": "single",
-    "undef": true,
-    "unused": true,
-    "trailing": true,
-
-    "browser": true,
-    "jquery": true,
-
-    "sub": true,
-    "globals": {
-      "console": true,
-      "EH": true,
-      "app": true
-    }
+    "grunt-contrib-jshint": "~0.6.3"
   }
 }

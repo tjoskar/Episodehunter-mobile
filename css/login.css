@@ -64,10 +64,14 @@ body.login {
     overflow: hidden;
 }
 
-.login #header {
+.login #header, .login #iosstatusbar {
     display: none;
 }
 
 .login .sidebar {
     display: none;
+}
+
+.login .alert {
+	position: absolute;
 }

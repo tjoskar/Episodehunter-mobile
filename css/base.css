@@ -22,7 +22,7 @@ body {
 #iosstatusbar {
     position: fixed;
     z-index: 100;
-    background: #000;
+    background: #4B946A;
     width: 100%;
     height: 15px;
     top: 0;

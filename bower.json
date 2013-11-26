@@ -1,0 +1,15 @@
+{
+  "name": "Episodehunter Mobile",
+  "version": "0.0.5",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+  	"angular": "1.0.8",
+    "jquery": "2.0.3",
+    "imgcache.js": "*"
+  },
+  "private": true
+}

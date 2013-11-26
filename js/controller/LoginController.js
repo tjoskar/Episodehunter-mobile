@@ -1,5 +1,4 @@
-/* global EH: true, console: true */
-EH.controller('LoginController', function($scope, auth, error) {
+EHM.controller('LoginController', function($scope, auth, error) {
   console.log('LoginController');
   $scope.error = error;
 

@@ -15,8 +15,16 @@
     left: 6px;
 }
 
+.refresh {
+    position: absolute;
+    top: 3px;
+    right: 2px;
+}
+
 #view {
     margin-top: 65px;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
@@ -32,7 +40,7 @@ h2 {
     font-family: 'Lato',sans-serif;
     font-weight: 100;
     background-color: #4B946A;
-    margin: -.4em 0 -.4em 0;
+    margin: .2em 0 -.4em 0;
     color: #fff;
     padding: .2em 0 .2em .3em;
     text-transform: uppercase;

@@ -1,170 +1,50 @@
-<div class="ui divided list">
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-</div>
-<h2>
-  Next Week
-</h2>
-<div class="ui divided list">
-  <div class="item">
-    <div class="item">
-      <img src="img/beakingbadfanart.jpg">
+<div ng-repeat="collection in episodeCollections">
+  <h2 ng-show="collection.getHeadline()">
+    {{collection.getHeadline()}}
+  </h2>
+  <div class="ui divided list">
+    <div class="item" ng-repeat="episode in collection.getEpisodes()">
+      <img src="{{episode.getEpisodeImage()}}">
       <div class="content">
-        <div class="header">Snickerdoodle</div>
-        An excellent Cat
+        <div class="header">{{episode.getShowName()}}</div>
+        <i class="gray">{{episode.getDate()}}</i><br>
+        {{episode.getEpisode()}} {{episode.getEpisodeName()}}
       </div>
     </div>
   </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
+</div>
+
+<div style="display: none;">
+  <div class="ui divided list" >
+    <div class="item" >
+      <img src="">
+      <div class="content">
+        <div class="header">Breaking Bad</div>
+        <i class="gray">Wednesday, October 23</i><br>
+        S05E13 Broken Dolls
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/beakingbadfanart.jpg">
+      <div class="content">
+        <div class="header">Breaking Bad</div>
+        <i class="gray">Wednesday, October 23</i><br>
+        S05E13 Broken Dolls
+      </div>
     </div>
   </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Snickerdoodle</div>
-      An excellent Cat
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
-  <div class="item">
-    <img src="img/beakingbadfanart.jpg">
-    <div class="content">
-      <div class="header">Breaking Bad</div>
-      <i class="gray">Wednesday, October 23</i><br>
-      S05E13 Broken Dolls
-    </div>
-  </div>
+  <h2>
+    Next Week
+  </h2>
+</div>
+
+<div class="alert error" ng-show="error.isShowing()" ng-click="error.hide()">
+  <h1>
+    {{ error.getHeader() }}
+  </h1>
+  <ul class="ul list">
+    <li ng-repeat="msg in error.getMesage()">
+      {{msg}}
+    </li>
+  </ul>
 </div>
