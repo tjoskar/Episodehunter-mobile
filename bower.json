@@ -9,7 +9,8 @@
   "dependencies": {
   	"angular": "1.0.8",
     "jquery": "2.0.3",
-    "imgcache.js": "*"
+    "imgcache.js": "*",
+    "semantic": "0.9.*"
   },
   "private": true
 }

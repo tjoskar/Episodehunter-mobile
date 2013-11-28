@@ -2,7 +2,7 @@
 <widget id="tv.episodehuntere.eh" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>EH</name>
     <description>
-        A complementary APP to EpisodeHunter.tv
+        A complementary APP for EpisodeHunter.tv
     </description>
     <author email="info@episodehunter.tv" href="http://episodehunter.tv">
         Oskar Karlsson
