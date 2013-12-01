@@ -41,7 +41,7 @@ EHM.factory('storage', function() {
   storage.get = function(key) {
     var v = storage.rawGet(key);
     if (EH.isset(v)) {
-      if (v.expiration === 0 || v.expiration < EH.time()) {
+      if (v.expiration === 0 || v.expiration >= EH.time()) {
         storage.setObsolete(false);
       } else {
         storage.setObsolete(true);
@@ -72,6 +72,10 @@ EHM.factory('storage', function() {
       'expiration': expiration,
       'value': value
     }));
+  };
+
+  storage.clear = function() {
+    window.localStorage.clear();
   };
 
   return storage;

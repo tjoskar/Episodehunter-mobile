@@ -22,13 +22,21 @@ module.exports = function(grunt) {
         },
         src: ['js/*.js', 'js/controller/*.js', 'js/lib/*.js', 'js/model/*.js']
       },
+    },
+
+    karma: {
+      unit: {
+        configFile: 'tests/karma.config.js'
+      }
     }
   });
 
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'karma']);
+  grunt.registerTask('test', ['karma']);
 
 };
