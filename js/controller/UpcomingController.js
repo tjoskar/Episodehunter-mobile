@@ -40,6 +40,31 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
       upcoming,
       TBA
     ];
+
+    // See issue #127
+    setTimeout(function() {
+      var i = 0;
+      console.log('Lets cache');
+      $('#view img').each(function() {
+        var $img = $(this);
+        i++;
+        console.log(i);
+        ImgCache.isCached($img.data('cached'), function(path, success){
+          if(success){
+            // already cached
+            $img.attr('src', $img.data('cached'));
+            ImgCache.useCachedFile($img);
+            console.log('already cached');
+          } else {
+            console.log('not there, need to cache the image');
+            ImgCache.cacheFile($img.data('cached'), function(){
+              $img.attr('src', $img.data('cached'));
+              ImgCache.useCachedFile($img);
+            });
+          }
+        });
+      });
+    }, 1000);
   }
 
   function updateList() {
@@ -61,6 +86,9 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
   var episodes = storage.get('upcoming');
   if (episodes !== null) {
     populateUpcoming(episodes);
+    if (storage.isObsolete()) {
+      updateList();
+    }
   } else {
     updateList();
   }

@@ -2,7 +2,7 @@ var EH = {};
 var local = true;
 
 EH.url = {
-  'apikey': 'http://episodehunter.tv/api/apikey',
+  'apikey': 'http://episodehunter.tv/api/user/apikey',
   'api': 'http://api.episodehunter.tv/mobile/',
   'movie': {
     'poster': 'http://img.episodehunter.tv/movie/poster/',
@@ -87,7 +87,7 @@ EH.ajaxStop = function() {
 };
 
 if (local) {
-  EH.url.apikey = 'http://episodehunter.dev/api/apikey';
+  EH.url.apikey = 'http://episodehunter.dev/api/user/apikey';
   EH.url.api = 'http://api.episodehunter.dev/mobile/';
   EH.url.movie = {
     'poster': 'http://img.episodehunter.dev/movie/poster/',

@@ -57,6 +57,16 @@
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/semantic/build/packaged/javascript/semantic.js"></script>
 
+<script>
+  ImgCache.options.debug = true;
+  ImgCache.init(function(){
+    console.log('Cache created successfully!');
+  }, function(){
+    console.log('Check the log for errors');
+  });
+</script>
+
+
 <!-- App -->
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
