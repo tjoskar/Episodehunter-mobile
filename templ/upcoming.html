@@ -4,7 +4,7 @@
   </h2>
   <div class="ui divided list">
     <div class="item" ng-repeat="episode in collection.getEpisodes()">
-      <img src="" data-cached="{{episode.getEpisodeImage()}}">
+      <img src="{{episode.image}}" alt="">
       <div class="content">
         <div class="header">{{episode.getShowName()}}</div>
         <i class="gray">{{episode.getDate()}}</i><br>

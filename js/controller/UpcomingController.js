@@ -21,16 +21,16 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
     for (var i in episodes) {
       episode = episodes[i];
       if (!EH.isset(episode.episodeid)) {
-        TBA.addEpisode(new Episode(episode));
+        TBA.addEpisode(new Episode(episode, $scope));
         continue;
       }
       d = new Date(episode.timestamp + ' 00:00:00');
       if (d <= thisSunday) {
-        thisWeek.addEpisode(new Episode(episode));
+        thisWeek.addEpisode(new Episode(episode, $scope));
       } else if (thisSunday < d && d <= nextSunday) {
-        nextWeek.addEpisode(new Episode(episode));
+        nextWeek.addEpisode(new Episode(episode, $scope));
       } else {
-        upcoming.addEpisode(new Episode(episode));
+        upcoming.addEpisode(new Episode(episode, $scope));
       }
     }
 
@@ -40,31 +40,6 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
       upcoming,
       TBA
     ];
-
-    // See issue #127
-    setTimeout(function() {
-      var i = 0;
-      console.log('Lets cache');
-      $('#view img').each(function() {
-        var $img = $(this);
-        i++;
-        console.log(i);
-        ImgCache.isCached($img.data('cached'), function(path, success){
-          if(success){
-            // already cached
-            $img.attr('src', $img.data('cached'));
-            ImgCache.useCachedFile($img);
-            console.log('already cached');
-          } else {
-            console.log('not there, need to cache the image');
-            ImgCache.cacheFile($img.data('cached'), function(){
-              $img.attr('src', $img.data('cached'));
-              ImgCache.useCachedFile($img);
-            });
-          }
-        });
-      });
-    }, 1000);
   }
 
   function updateList() {
@@ -73,8 +48,12 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
       'username': user.username,
       'apikey': user.apikey
     }).success(function(episodes) {
-      storage.set('upcoming', episodes, 86400000); // A day in milliseconds according to Google.
-      populateUpcoming(episodes);
+      if (EH.isset(episodes.value)) {
+        storage.set('upcoming', episodes.value, 86400000); // A day in milliseconds according to Google.
+        populateUpcoming(episodes.value);
+      } else {
+        error.setHeader('Can not connect to the server, try again later').show();
+      }
       EH.ajaxStop();
     }).error(function() {
       error.setHeader('Can not connect to the server, try again later').show();

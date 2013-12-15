@@ -32,71 +32,88 @@ function EpisodeCollection(_headline, _episodes) {
 
 }
 
-function Episode(_episode) {
+function Episode(_episode, $scope) {
   if (!(this instanceof Episode)) {
     return null;
   }
 
-  var showID          = _episode.showid || 0;
-  var episodeID       = _episode.episodeid || 0;
-  var show            = _episode.showname || '';
-  var timestamp       = _episode.timestamp || '';
-  var season          = _episode.season || -1;
-  var episode         = _episode.episode || -1;
-  var episodeName     = _episode.episodename || '';
-  var images          = _episode.image || '';
+  var _showID          = _episode.showid      || 0;
+  var _episodeID       = _episode.episodeid   || 0;
+  var _show            = _episode.showname    || '';
+  var _timestamp       = _episode.timestamp   || '';
+  var _seasonNr        = _episode.season      || -1;
+  var _episodeNr       = _episode.episode     || -1;
+  var _episodeName     = _episode.episodename || '';
+  var _image           = _episode.image       || '';
+  var _date            = '';
 
-  var date = '';
+  this.image = ''; // Default image
+
+  if (_image) {
+    var i = EH.url.shows.fanart + _image + '/8';
+    var $img = $('<img src="" alt="">'); // Temp
+    var that = this;
+    ImgCache.isCached(i, function(path, success) {
+      if(success){
+        // already cached
+        ImgCache.useCachedFileWithSource($img, i, function() {
+          that.image = $img.attr('src');
+          $scope.$apply();
+        });
+      } else {
+        // not there, need to cache the image
+        ImgCache.cacheFile($img.attr('src'), function(){
+          ImgCache.useCachedFileWithSource($img, i, function() {
+            that.image = $img.attr('src');
+            $scope.$apply();
+          });
+        });
+      }
+    });
+  }
 
   this.getShowName = function() {
-    return show;
+    return _show;
   };
 
   this.getDate = function() {
-    if (timestamp === '') {
+    if (_timestamp === '') {
       return '';
     }
-    if (date === '') {
+    if (_date === '') {
       var now = new Date();
-      var d = new Date(timestamp);
+      var d = new Date(_timestamp);
       if (d instanceof Date) {
-        date = EH.days[d.getDay()] + ', ' + EH.month[d.getMonth()] + ' ' + d.getDate();
+        _date = EH.days[d.getDay()] + ', ' + EH.month[d.getMonth()] + ' ' + d.getDate();
         if (d.getFullYear() > now.getFullYear()) {
-          date += ' ' + d.getFullYear();
+          _date += ' ' + d.getFullYear();
         }
       }
     }
-    return date;
+    return _date;
   };
 
   this.getEpisode = function() {
-    if (season < 0 && episode < 0) {
+    if (_seasonNr < 0 && _episodeNr < 0) {
       return '';
     }
     var SE = 'S';
-    if (season < 10) {
-      SE += '0' + season;
+    if (_seasonNr < 10) {
+      SE += '0' + _seasonNr;
     } else {
-      SE += season;
+      SE += _seasonNr;
     }
     SE += 'E';
-    if (episode < 10) {
-      SE += '0' + episode;
+    if (_episodeNr < 10) {
+      SE += '0' + _episodeNr;
     } else {
-      SE += episode;
+      SE += _episodeNr;
     }
     return SE;
   };
 
   this.getEpisodeName = function() {
-    return episodeName;
-  };
-
-  this.getEpisodeImage = function() {
-    if (images) {
-      return EH.url.shows.fanart + images + '/8';
-    }
-    return '';
+    return _episodeName;
   };
 
 }
