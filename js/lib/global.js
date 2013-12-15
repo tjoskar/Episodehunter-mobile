@@ -85,17 +85,3 @@ EH.ajaxStop = function() {
     width: '100%',
   }, 200 );
 };
-
-if (local) {
-  EH.url.apikey = 'http://episodehunter.dev/api/user/apikey';
-  EH.url.api = 'http://api.episodehunter.dev/mobile/';
-  EH.url.movie = {
-    'poster': 'http://img.episodehunter.dev/movie/poster/',
-    'fanart': 'http://img.episodehunter.dev/movie/fanart/'
-  };
-  EH.url.shows = {
-    'poster': 'http://img.episodehunter.dev/serie/poster/',
-    'fanart': 'http://img.episodehunter.tv/',
-    'episode': 'http://img.episodehunter.dev/episode/'
-  };
-}
