@@ -1,4 +1,4 @@
-/* global angular: true, local */
+/* global local: true*/
 var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($routeProvider, $compileProvider) {
   $routeProvider.when('/login', {
     templateUrl: 'templ/login.html',
