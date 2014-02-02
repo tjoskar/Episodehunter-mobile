@@ -20,11 +20,12 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
 
     for (var i in episodes) {
       episode = episodes[i];
-      if (!EH.isset(episode.episodeid)) {
+      d = new Date((episode.timestamp || '2014-01-01') + ' 00:00:00');
+      if (!EH.isset(episode.episodeid) || d <= now) {
         TBA.addEpisode(new Episode(episode, $scope));
         continue;
       }
-      d = new Date(episode.timestamp + ' 00:00:00');
+
       if (d <= thisSunday) {
         thisWeek.addEpisode(new Episode(episode, $scope));
       } else if (thisSunday < d && d <= nextSunday) {
@@ -34,12 +35,19 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
       }
     }
 
-    $scope.episodeCollections = [
-      thisWeek,
-      nextWeek,
-      upcoming,
-      TBA
-    ];
+    $scope.episodeCollections = [];
+    if (thisWeek.getEpisodes().length > 0) {
+      $scope.episodeCollections.push(thisWeek);
+    }
+    if (nextWeek.getEpisodes().length > 0) {
+      $scope.episodeCollections.push(nextWeek);
+    }
+    if (upcoming.getEpisodes().length > 0) {
+      $scope.episodeCollections.push(upcoming);
+    }
+    if (TBA.getEpisodes().length > 0) {
+      $scope.episodeCollections.push(TBA);
+    }
   }
 
   function updateList() {
