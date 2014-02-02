@@ -76,5 +76,3 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
     updateList();
   }
 });
-
-

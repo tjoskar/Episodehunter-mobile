@@ -13,10 +13,10 @@
   "homepage": "http://episodehunter.tv",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/tjoskar/Episodehunter-mobile"
   },
   "bugs": {
-    "url": "",
+    "url": "https://github.com/tjoskar/Episodehunter-mobile/issues",
     "email": "info@episodehunter.tv"
   },
   "license": "MIT",

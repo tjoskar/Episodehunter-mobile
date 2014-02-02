@@ -1,4 +1,3 @@
-/* global EHM: true, EH: true */
 /*
   Saves values as object:
   key: {

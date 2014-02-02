@@ -1,5 +1,5 @@
-/* global angular: true */
-var EHM = angular.module('EHM', ['ngMockE2E']).config(function($routeProvider) {
+/* global angular: true, local */
+var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($routeProvider) {
   $routeProvider.when('/login', {
     templateUrl: 'templ/login.html',
     controller: 'LoginController'
@@ -39,7 +39,7 @@ EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
 
     $httpBackend.whenPOST(EH.url.apikey).respond(function(method, url, data) {
       data = JSON.parse(data);
-      if (EH.isset(data.username) && data.username == 'admin' && EH.isset(data.password) && data.password == 'admin') {
+      if (EH.isset(data.username) && data.username === 'admin' && EH.isset(data.password) && data.password === 'admin') {
         return [200, {'status': 200, 'msg': 'OK', 'value': {'apikey': 'apikey'}}, {}];
       } else {
         return [401, {'status': 401, 'msg': 'Unauthorized'}, {}];
@@ -48,7 +48,7 @@ EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
 
     $httpBackend.whenPOST(EH.url.api+'tv/upcoming').respond(function(method, url, data) {
       data = JSON.parse(data);
-      if (EH.isset(data.username) && data.username == 'admin' && EH.isset(data.apikey) && data.apikey == 'apikey') {
+      if (EH.isset(data.username) && data.username === 'admin' && EH.isset(data.apikey) && data.apikey === 'apikey') {
         return [200, {'status': 200, 'msg': 'OK', 'value':
         [{
           "showid": "24",

@@ -17,7 +17,7 @@ module.exports = function(config) {
       '../bower_components/jquery/jquery.js',
       '../bower_components/imgcache.js/js/imgcache.js',
       '../bower_components/angular/angular.js',
-      'angular-mocks.js',
+      '../bower_components/angular-mocks/angular-mocks.js',
       '../bower_components/semantic/build/packaged/javascript/semantic.js',
       '../js/index.js',
       '../js/app.js',

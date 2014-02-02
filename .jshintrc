@@ -17,6 +17,11 @@
     "window": false,
     "document": false,
     "EH": true,
-    "EHM": true
+    "EHM": true,
+    "ImgCache": true,
+    "describe": true,
+    "beforeEach": true,
+    "it": true,
+    "expect": true
   }
 }

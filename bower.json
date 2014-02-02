@@ -7,10 +7,12 @@
     "components"
   ],
   "dependencies": {
-  	"angular": "1.0.8",
+  	"angular": "1.2.10",
     "jquery": "2.0.3",
     "imgcache.js": "*",
-    "semantic": "0.9.*"
+    "semantic": "0.9.*",
+    "angular-mocks": "*",
+    "angular-route": "1.2.10"
   },
   "private": true
 }

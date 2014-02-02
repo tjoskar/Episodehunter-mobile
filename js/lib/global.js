@@ -47,7 +47,6 @@ EH.int = function(str) {
 };
 
 EH.jsonParse = function(obj) {
-  // Check if the value is a string or an array/object
   try {
     obj = JSON.parse(obj);
   } catch(e) {}

@@ -1,4 +1,3 @@
-/* global EHM: true*/
 EHM.factory('menu', function() {
   var activate = 'upcoming';
   return {
