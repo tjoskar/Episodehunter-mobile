@@ -1,4 +1,4 @@
-/* global EHM: true, console: true, EpisodeCollection: true, Episode: true, EH: true */
+/* global EpisodeCollection: true, Episode: true */
 EHM.controller('UpcomingController', function($scope, $http, auth, storage, error) {
   console.log('upcomingController');
   $scope.error = error;
@@ -77,10 +77,6 @@ EHM.controller('UpcomingController', function($scope, $http, auth, storage, erro
       updateList();
     }
   } else {
-    updateList();
-  }
-
-  if (storage.isObsolete()) {
     updateList();
   }
 });
