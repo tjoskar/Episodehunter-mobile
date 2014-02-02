@@ -62,7 +62,7 @@ function Episode(_episode, $scope) {
         });
       } else {
         // not there, need to cache the image
-        ImgCache.cacheFile($img.attr('src'), function(){
+        ImgCache.cacheFile(i, function(){
           ImgCache.useCachedFileWithSource($img, i, function() {
             that.image = $img.attr('src');
             $scope.$apply();

@@ -1,5 +1,5 @@
 /* global angular: true, local */
-var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($routeProvider) {
+var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($routeProvider, $compileProvider) {
   $routeProvider.when('/login', {
     templateUrl: 'templ/login.html',
     controller: 'LoginController'
@@ -18,6 +18,8 @@ var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($route
   $routeProvider.otherwise({
     redirectTo: '/login'
   });
+
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|mailto|filesystem):/);
 });
 
 EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
