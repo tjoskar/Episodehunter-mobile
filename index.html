@@ -28,7 +28,7 @@
       <i class="home icon"></i>
       Upcoming
     </a>
-    <a class="item" ng-class="{active: menu.isActive('episode')}" ng-click="menu.set('episode')">
+    <a class="item" ng-class="{active: menu.isActive('episodestowatch')}" ng-click="menu.set('episodestowatch')">
       <i class="play icon"></i>
       Episode to Watch
     </a>
@@ -45,7 +45,9 @@
       Logout
     </a>
   </div>
-  <div id="view" ng-view></div>
+  <div id="father">
+    <div id="view" ng-view></div>
+  </div>
 
 
 <!-- PhoneGap -->
@@ -83,6 +85,7 @@
 <script type="text/javascript" src="/js/controller/LoginController.js"></script>
 <script type="text/javascript" src="/js/controller/LogoutController.js"></script>
 <script type="text/javascript" src="/js/controller/UpcomingController.js"></script>
+<script type="text/javascript" src="/js/controller/EpisodesToWatchController.js"></script>
 
 <!-- Model -->
 <script type="text/javascript" src="/js/model/episodeCollection.js"></script>
@@ -96,19 +99,21 @@
   //app.initialize();
 
   //Keyboard.shrinkView(true);
-  var $sidebar = $('.sidebar');
-  $('.show-menu').click(function() {
-    $sidebar
-      .sidebar({
-        overlay: true
-      })
-      .sidebar('show')
-    ;
-  });
-  $('#view').click(function() {
-    if ($sidebar.sidebar('is open')) {
-      $sidebar.sidebar('hide');
-    }
+  $(function() {
+    var $sidebar = $('.sidebar');
+    $('.show-menu').click(function() {
+      $sidebar
+        .sidebar({
+          overlay: true
+        })
+        .sidebar('show')
+      ;
+    });
+    $('#father').click(function() {
+      if ($sidebar.sidebar('is open')) {
+        $sidebar.sidebar('hide');
+      }
+    });
   });
 </script>
 </body>

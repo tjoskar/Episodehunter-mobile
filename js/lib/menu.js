@@ -1,8 +1,15 @@
-EHM.factory('menu', function() {
+EHM.factory('menu', function($location) {
   var activate = 'upcoming';
+  var $sidebar = $('.sidebar');
   return {
     set: function(state) {
-      activate = state;
+      if (!this.isActive(state)) {
+        activate = state;
+        $location.path('/'+state);
+        if ($sidebar.sidebar('is open')) {
+          $sidebar.sidebar('hide');
+        }
+      }
     },
     get: function() {
       return activate;

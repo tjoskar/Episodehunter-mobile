@@ -10,6 +10,11 @@ var EHM = angular.module('EHM', ['ngMockE2E', 'ngRoute']).config(function($route
     controller: 'UpcomingController'
   });
 
+  $routeProvider.when('/episodestowatch', {
+    templateUrl: 'templ/episodestowatch.html',
+    controller: 'EpisodesToWatchController'
+  });
+
   $routeProvider.when('/logout', {
     templateUrl: '',
     controller: 'LogoutController'
@@ -28,6 +33,8 @@ EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
     error.hide();
     if ($location.path() !== '/login' && !auth.isLoggedIn()) {
       $location.path('/login');
+    } else {
+      menu.set($location.path().split("/")[1]);
     }
     if (next.$$route && next.$$route.controller) {
       var c = next.$$route.controller.split('Controller')[0].toLowerCase();
@@ -243,6 +250,95 @@ EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
           "image": "50b21fdebd663.jpg"
         },
         {
+          "showid": "14",
+          "episodeid": "16745",
+          "showname": "How I Met Your Mother",
+          "timestamp": "2013-12-16",
+          "season": "9",
+          "episode": "13",
+          "episodename": "Bass Player Wanted",
+          "image": "5042420779317.jpg"
+        },
+        {
+          "showid": "106",
+          "episodeid": "39390",
+          "showname": "Justified",
+          "timestamp": "2014-01-07",
+          "season": "5",
+          "episode": "1",
+          "episodename": "A Murder Of Crowes",
+          "image": "50bb4f6c9ce25.jpg"
+        },
+        {
+          "showid": "108",
+          "episodeid": "14038",
+          "showname": "Banshee",
+          "timestamp": "2014-01-10",
+          "season": "2",
+          "episode": "1",
+          "episodename": "Armies Of One",
+          "image": "50e1526c80642.jpg"
+        },
+        {
+          "showid": "107",
+          "episodeid": "52557",
+          "showname": "The Following",
+          "timestamp": "2014-01-20",
+          "season": "2",
+          "episode": "1",
+          "episodename": "Resurrection",
+          "image": "50cdf863dfd5b.jpg"
+        },
+        {
+          "showid": "110",
+          "episodeid": "77648",
+          "showname": "The Americans (2013)",
+          "timestamp": "2014-02-05",
+          "season": "2",
+          "episode": "1",
+          "episodename": "Comrades",
+          "image": "50e3b0f897b9b.jpg"
+        },
+        {
+          "showid": "111",
+          "episodeid": "39130",
+          "showname": "House Of Cards (2013)",
+          "timestamp": "2014-02-07",
+          "season": "2",
+          "episode": "1",
+          "episodename": "TBA",
+          "image": "50e3b0f9db0eb.jpg"
+        },
+        {
+          "showid": "5",
+          "episodeid": "37961",
+          "showname": "Continuum",
+          "timestamp": "2014-04-20",
+          "season": "3",
+          "episode": "1",
+          "episodename": "TBA",
+          "image": "504241956e53f.jpg"
+        },
+        {
+          "showid": "7",
+          "episodeid": "37960",
+          "showname": "Falling Skies",
+          "timestamp": "2014-06-01",
+          "season": "4",
+          "episode": "1",
+          "episodename": "Ghost in the Machine",
+          "image": "504241a7afd0f.jpg"
+        }]}, {}];
+      } else {
+        return [401, {'status': 401, 'msg': 'Unauthorized'}, {}];
+      }
+    });
+
+    $httpBackend.whenPOST(EH.url.api+'tv/episodestowatch').respond(function(method, url, data) {
+      data = JSON.parse(data);
+      if (EH.isset(data.username) && data.username === 'admin' && EH.isset(data.apikey) && data.apikey === 'apikey') {
+        return [200, {'status': 200, 'msg': 'OK', 'value':
+        [{
           "showid": "14",
           "episodeid": "16745",
           "showname": "How I Met Your Mother",
