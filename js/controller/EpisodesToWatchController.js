@@ -1,9 +1,10 @@
 /* global EpisodeCollection: true, Episode: true */
-EHM.controller('EpisodesToWatchController', function($scope, $http, auth, storage, error) {
-  $scope.error = error;
+EHM.controller('EpisodesToWatchController', function($rootScope, $scope, $http, auth, storage, error) {
+  $rootScope.error = error;
+  $rootScope.headLine = 'Episodes to Watch';
 
-  $scope.refresh = function() {
-    console.log('refresh');
+  $rootScope.refresh = function() {
+    updateList();
   };
 
   function populateCollection(episodes) {

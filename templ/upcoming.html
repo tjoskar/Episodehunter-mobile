@@ -4,7 +4,7 @@
   </h2>
   <div class="ui divided list">
     <div class="item" ng-repeat="episode in collection.getEpisodes()">
-      <img src="{{episode.image}}" alt="">
+      <img ng-src="{{episode.image}}" alt="">
       <div class="content">
         <div class="header">{{episode.getShowName()}}</div>
         <i class="gray">{{episode.getDate()}}</i><br>
@@ -12,15 +12,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="alert error" ng-show="error.isShowing()" ng-click="error.hide()">
-  <h1>
-    {{ error.getHeader() }}
-  </h1>
-  <ul class="ul list">
-    <li ng-repeat="msg in error.getMesage()">
-      {{msg}}
-    </li>
-  </ul>
 </div>

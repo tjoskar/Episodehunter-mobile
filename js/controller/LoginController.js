@@ -1,6 +1,8 @@
-EHM.controller('LoginController', function($scope, auth, error) {
+EHM.controller('LoginController', function($rootScope, $scope, auth, error) {
   console.log('LoginController');
-  $scope.error = error;
+  $rootScope.error = error;
+
+  $rootScope.refresh = false;
 
   $scope.credentials = {
     username: '',

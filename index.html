@@ -17,9 +17,9 @@
     <div class="show-menu">
       <i class="list square inverted large layout icon"></i>
     </div>
-    <h1>Upcoming</h1>
-    <div class="refresh">
-      <i class="refresh square inverted large layout icon"></i>
+    <h1>{{headLine}}</h1>
+    <div class="refresh" ng-show="refresh">
+      <i class="refresh square inverted large layout icon" ng-click="refresh()"></i>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
     </a>
     <a class="item" ng-class="{active: menu.isActive('episodestowatch')}" ng-click="menu.set('episodestowatch')">
       <i class="play icon"></i>
-      Episode to Watch
+      Episodes to Watch
     </a>
     <a class="item" ng-class="{active: menu.isActive('rating')}" ng-click="menu.set('rating')">
       <i class="heart icon"></i>
@@ -47,6 +47,16 @@
   </div>
   <div id="father">
     <div id="view" ng-view></div>
+    <div class="alert error" ng-show="error.isShowing()" ng-click="error.hide()">
+      <h1>
+        {{ error.getHeader() }}
+      </h1>
+      <ul class="ul list">
+        <li ng-repeat="msg in error.getMesage()">
+          {{msg}}
+        </li>
+      </ul>
+    </div>
   </div>
 
 

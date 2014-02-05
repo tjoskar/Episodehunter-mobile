@@ -23,14 +23,3 @@
     </form>
   </div>
 </div>
-
-<div class="alert error" ng-show="error.isShowing()" ng-click="error.hide()">
-  <h1>
-    {{ error.getHeader() }}
-  </h1>
-  <ul class="ul list">
-    <li ng-repeat="msg in error.getMesage()">
-      {{msg}}
-    </li>
-  </ul>
-</div>

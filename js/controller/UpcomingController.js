@@ -1,10 +1,11 @@
 /* global EpisodeCollection: true, Episode: true */
-EHM.controller('UpcomingController', function($scope, $http, auth, storage, error) {
+EHM.controller('UpcomingController', function($rootScope, $scope, $http, auth, storage, error) {
   console.log('upcomingController');
-  $scope.error = error;
+  $rootScope.error = error;
+  $rootScope.headLine = 'Upcoming';
 
-  $scope.refresh = function() {
-    console.log('refresh');
+  $rootScope.refresh = function() {
+    updateList();
   };
 
   function populateUpcoming(episodes) {
