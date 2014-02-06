@@ -1,5 +1,4 @@
 // Karma configuration
-// Generated on Sun Dec 01 2013 19:59:34 GMT+0100 (CET)
 
 module.exports = function(config) {
   config.set({
@@ -18,6 +17,7 @@ module.exports = function(config) {
       '../bower_components/imgcache.js/js/imgcache.js',
       '../bower_components/angular/angular.js',
       '../bower_components/angular-mocks/angular-mocks.js',
+      '../bower_components/angular-route/angular-route.js',
       '../bower_components/semantic/build/packaged/javascript/semantic.js',
       '../js/index.js',
       '../js/app.js',
@@ -64,7 +64,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'PhantomJS', 'Firefox', 'Safari'],
 
 
     // If browser does not capture in given timeout [ms], kill it

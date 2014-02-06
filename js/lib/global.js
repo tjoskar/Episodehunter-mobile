@@ -1,3 +1,4 @@
+/* exported local */
 var EH = {};
 var local = true;
 

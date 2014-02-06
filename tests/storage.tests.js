@@ -1,3 +1,4 @@
+/* global inject */
 describe('StorageTest', function(){
     var _storage;
 
