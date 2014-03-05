@@ -1,7 +1,6 @@
 /* global EpisodeCollection: true, Episode: true */
 EHM.controller('UpcomingController', function($rootScope, $scope, $http, auth, storage, error) {
   console.log('upcomingController');
-  $rootScope.error = error;
   $rootScope.headLine = 'Upcoming';
 
   $rootScope.refresh = function() {

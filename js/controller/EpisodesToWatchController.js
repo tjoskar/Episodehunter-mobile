@@ -1,6 +1,5 @@
 /* global EpisodeCollection: true, Episode: true */
 EHM.controller('EpisodesToWatchController', function($rootScope, $scope, $http, auth, storage, error) {
-  $rootScope.error = error;
   $rootScope.headLine = 'Episodes to Watch';
 
   $rootScope.refresh = function() {

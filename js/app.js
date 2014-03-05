@@ -43,6 +43,7 @@ EHM.run(function($rootScope, $location, $httpBackend, auth, menu, error) {
   });
 
   $rootScope.menu = menu;
+  $rootScope.error = error;
 
   if (local) {
 

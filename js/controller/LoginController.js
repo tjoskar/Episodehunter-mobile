@@ -1,6 +1,5 @@
-EHM.controller('LoginController', function($rootScope, $scope, auth, error) {
+EHM.controller('LoginController', function($rootScope, $scope, auth) {
   console.log('LoginController');
-  $rootScope.error = error;
 
   $rootScope.refresh = false;
 
