@@ -11,13 +11,12 @@ EHM.factory('auth', function($location, $http, error, storage) {
           error.setHeader('Receive bad data, try again later').show();
           return;
         }
-        var user = {
+        auth.logginUser({
           'username': credentials.username,
           'apikey': obj.value.apikey,
           'loggedin': true,
           'time': EH.time()
-        };
-        auth.logginUser(user);
+        });
         $location.path('/upcoming');
       }).error(function(data, status) {
         if (status === 401) {
@@ -32,10 +31,12 @@ EHM.factory('auth', function($location, $http, error, storage) {
       error.setHeader('Please fill in your username and password').show();
     }
   };
+
   auth.logout = function() {
     storage.removeItem('user');
     $location.path('/login');
   };
+
   auth.isLoggedIn = function() {
     var user = auth.getUser();
     if (user && user.loggedin) {
