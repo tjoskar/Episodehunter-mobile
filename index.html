@@ -70,16 +70,6 @@
 <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="/bower_components/semantic/build/packaged/javascript/semantic.js"></script>
 
-<script>
-  ImgCache.options.debug = true;
-  ImgCache.init(function(){
-    console.log('Cache created successfully!');
-  }, function(){
-    console.log('Check the log for errors');
-  });
-</script>
-
-
 <!-- App -->
 <script type="text/javascript" src="/js/app.js"></script>
 
@@ -89,12 +79,16 @@
 <script type="text/javascript" src="/js/lib/global.js"></script>
 <script type="text/javascript" src="/js/lib/menu.js"></script>
 <script type="text/javascript" src="/js/lib/storage.js"></script>
+<script type="text/javascript" src="/js/lib/imageCache.js"></script>
 
 <!-- Controllers -->
 <script type="text/javascript" src="/js/controller/LoginController.js"></script>
 <script type="text/javascript" src="/js/controller/LogoutController.js"></script>
 <script type="text/javascript" src="/js/controller/UpcomingController.js"></script>
 <script type="text/javascript" src="/js/controller/EpisodesToWatchController.js"></script>
+
+<!-- Repositories -->
+<script type="text/javascript" src="/js/repositories/upcomingRepositorie.js"></script>
 
 <!-- Model -->
 <script type="text/javascript" src="/js/model/episodeCollection.js"></script>
