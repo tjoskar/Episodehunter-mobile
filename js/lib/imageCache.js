@@ -8,10 +8,12 @@ EHM.factory('imageCache', function($q) {
 
     init: function(scope) {
       var deferred = $q.defer();
+
       if (status.init === true) {
         deferred.resolve('OK');
       } else {
         ImgCache.options.debug = true;
+
         ImgCache.init(function(){
           status.init = true;
           scope.$apply(function() {
@@ -22,9 +24,13 @@ EHM.factory('imageCache', function($q) {
             deferred.reject('Check the log for errors');
           });
         });
+
         return deferred.promise;
       }
-    }
+
+    },
+
+    getCacheURI: function() {}
 
   };
 });
