@@ -39,6 +39,6 @@
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install",
-    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    "test": "./node_modules/.bin/karma start ./tests/karma.config.js --single-run --browsers PhantomJS"
   }
 }
