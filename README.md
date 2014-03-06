@@ -1,4 +1,4 @@
-Episodehunter Mobile
+Episodehunter Mobile [![Build Status](https://travis-ci.org/tjoskar/Episodehunter-mobile.png?branch=master)](https://travis-ci.org/tjoskar/Episodehunter-mobile)
 ===================
 
 A complementary APP for EpisodeHunter.tv
