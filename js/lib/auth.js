@@ -42,6 +42,7 @@ EHM.factory('auth', function($location, $http, error, storage) {
     if (user && user.loggedin) {
       return user.loggedin;
     }
+    return false;
   };
 
   auth.getUser = function() {
