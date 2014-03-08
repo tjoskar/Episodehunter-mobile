@@ -32,7 +32,7 @@ function EpisodeCollection(_headline, _episodes) {
 
 }
 
-function Episode(_episode, $scope) {
+function Episode(_episode, $scope, imageCache) {
   if (!(this instanceof Episode)) {
     return null;
   }
@@ -50,26 +50,7 @@ function Episode(_episode, $scope) {
   this.image = ''; // Default image
 
   if (_image) {
-    var i = EH.url.shows.fanart + _image + '/8';
-    var $img = $('<img src="" alt="">'); // Temp
-    var that = this;
-    ImgCache.isCached(i, function(path, success) {
-      if(success){
-        // already cached
-        ImgCache.useCachedFileWithSource($img, i, function() {
-          that.image = $img.attr('src');
-          $scope.$apply();
-        });
-      } else {
-        // not there, need to cache the image
-        ImgCache.cacheFile(i, function(){
-          ImgCache.useCachedFileWithSource($img, i, function() {
-            that.image = $img.attr('src');
-            $scope.$apply();
-          });
-        });
-      }
-    });
+    imageCache.getCacheURI(EH.url.shows.fanart + _image + '/8', this, $scope);
   }
 
   this.getShowName = function() {

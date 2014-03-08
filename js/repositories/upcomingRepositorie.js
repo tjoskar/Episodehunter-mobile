@@ -1,5 +1,5 @@
 /* global EpisodeCollection: true, Episode: true */
-EHM.factory('upcomingRepositories', function($http, storage, auth, error) {
+EHM.factory('upcomingRepositories', function($http, storage, auth, error, imageCache) {
   var upcomingRepositories = {};
 
   var populateUpcoming = function(episodes, $scope) {
@@ -17,16 +17,16 @@ EHM.factory('upcomingRepositories', function($http, storage, auth, error) {
       episode = episodes[i];
       d = new Date((episode.timestamp || '2014-01-01') + ' 00:00:00');
       if (!EH.isset(episode.episodeid) || d <= now) {
-        TBA.addEpisode(new Episode(episode, $scope));
+        TBA.addEpisode(new Episode(episode, $scope, imageCache));
         continue;
       }
 
       if (d <= thisSunday) {
-        thisWeek.addEpisode(new Episode(episode, $scope));
+        thisWeek.addEpisode(new Episode(episode, $scope, imageCache));
       } else if (thisSunday < d && d <= nextSunday) {
-        nextWeek.addEpisode(new Episode(episode, $scope));
+        nextWeek.addEpisode(new Episode(episode, $scope, imageCache));
       } else {
-        upcoming.addEpisode(new Episode(episode, $scope));
+        upcoming.addEpisode(new Episode(episode, $scope, imageCache));
       }
     }
 

@@ -2,16 +2,12 @@ EHM.controller('UpcomingController', function($rootScope, $scope, imageCache, up
   console.log('upcomingController');
   $rootScope.headLine = 'Upcoming';
 
-  $rootScope.refresh = function() {};
+  $rootScope.refresh = function() {
+    upcomingRepositories.updateList($scope);
+  };
 
-  imageCache.init($scope).then(function() {
-
-    $rootScope.refresh = function() {
-      upcomingRepositories.updateList($scope);
-    };
-
+  imageCache.init().then(function() {
     upcomingRepositories.populate($scope);
-
   });
 
 });

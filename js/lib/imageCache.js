@@ -16,13 +16,15 @@ EHM.factory('imageCache', function($q) {
 
         ImgCache.init(function(){
           status.init = true;
-          scope.$apply(function() {
-            deferred.resolve('Cache created successfully!');
-          });
+          deferred.resolve('Cache created successfully!');
+          // scope.$apply(function() {
+          //   deferred.resolve('Cache created successfully!');
+          // });
         }, function(){
-          scope.$apply(function() {
-            deferred.reject('Check the log for errors');
-          });
+          deferred.reject('Check the log for errors');
+          // scope.$apply(function() {
+          //   deferred.reject('Check the log for errors');
+          // });
         });
 
         return deferred.promise;
@@ -30,7 +32,32 @@ EHM.factory('imageCache', function($q) {
 
     },
 
-    getCacheURI: function() {}
+    getCacheURI: function(url, episode, scope) {
+      var $img = $('<img src="" alt="">'); // Temp
+
+      ImgCache.isCached(url, function(path, success) {
+        if(success){
+
+          // already cached
+          ImgCache.useCachedFileWithSource($img, url, function() {
+            episode.image = $img.attr('src');
+            scope.$apply();
+          });
+
+        } else {
+
+          // not there, need to cache the image
+          ImgCache.cacheFile(url, function() {
+            ImgCache.useCachedFileWithSource($img, url, function() {
+              episode.image = $img.attr('src');
+              scope.$apply();
+            });
+          });
+
+        }
+      });
+
+    }
 
   };
 });
