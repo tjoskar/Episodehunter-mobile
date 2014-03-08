@@ -6,7 +6,7 @@ EHM.factory('imageCache', function($q) {
 
   return {
 
-    init: function(scope) {
+    init: function() {
       var deferred = $q.defer();
 
       if (status.init === true) {
@@ -34,7 +34,6 @@ EHM.factory('imageCache', function($q) {
 
     getCacheURI: function(url, episode, scope) {
       var $img = $('<img src="" alt="">'); // Temp
-
       ImgCache.isCached(url, function(path, success) {
         if(success){
 

@@ -4,7 +4,7 @@ EHM.factory('upcomingRepositories', function($http, storage, auth, error, imageC
 
   var populateUpcoming = function(episodes, $scope) {
     var episode, d;
-    var thisWeek = new EpisodeCollection('');
+    var thisWeek = new EpisodeCollection('this week');
     var nextWeek = new EpisodeCollection('next week');
     var upcoming = new EpisodeCollection('upcoming');
     var TBA      = new EpisodeCollection('TBA');
