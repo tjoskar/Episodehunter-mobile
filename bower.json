@@ -7,7 +7,7 @@
     "components"
   ],
   "dependencies": {
-    "angular": "1.2.11",
+    "angular": "1.2.*",
     "jquery": "2.1.*",
     "imgcache.js": "*",
     "semantic": "0.9.*",
