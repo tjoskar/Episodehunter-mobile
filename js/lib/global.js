@@ -69,6 +69,17 @@ EH.getNextSunday = function(d) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate() - d.getDay() + 7);
 };
 
+EH.getFutureDate = function(n) {
+  var d = new Date();
+  d = new Date(this.time() + (n || 0) * 86400000);
+  var month = d.getMonth() + 1;
+  return [
+    d.getFullYear(),
+    (month < 10 ? '0' + month : month),
+    (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
+  ].join('-');
+};
+
 EH.ajaxStart = function() {
   var $statusbar = $('#iosstatusbar');
   $statusbar.css({

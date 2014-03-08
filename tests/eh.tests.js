@@ -77,4 +77,22 @@ describe('helper function', function(){
         expect(EH.jsonParse(1)).toEqual(1);
     });
 
+    it('return next day', function() {
+        var timestamp = 1394288888570;
+        spyOn(Date.prototype, 'getTime').andReturn(timestamp);
+        expect(EH.getFutureDate(1)).toEqual('2014-03-09');
+    });
+
+    it('return previous day', function() {
+        var timestamp = 1394288888570;
+        spyOn(Date.prototype, 'getTime').andReturn(timestamp);
+        expect(EH.getFutureDate(-1)).toEqual('2014-03-07');
+    });
+
+    it('return two digit month', function() {
+        var timestamp = 1394288888570;
+        spyOn(Date.prototype, 'getTime').andReturn(timestamp);
+        expect(EH.getFutureDate(250)).toEqual('2014-11-13');
+    });
+
 });
