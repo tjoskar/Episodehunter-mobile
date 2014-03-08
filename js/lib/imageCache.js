@@ -26,9 +26,9 @@ EHM.factory('imageCache', function($q) {
           //   deferred.reject('Check the log for errors');
           // });
         });
-
-        return deferred.promise;
       }
+
+      return deferred.promise;
 
     },
 
