@@ -2,7 +2,7 @@
 EHM.factory('upcomingRepositories', function($http, storage, auth, error, imageCache) {
   var upcomingRepositories = {};
 
-  var populateUpcoming = function(episodes, $scope) {
+  var populateCollection = function(episodes, $scope) {
     var episode, d;
     var thisWeek = new EpisodeCollection('this week');
     var nextWeek = new EpisodeCollection('next week');
@@ -54,7 +54,7 @@ EHM.factory('upcomingRepositories', function($http, storage, auth, error, imageC
     }).success(function(episodes) {
       if (EH.isset(episodes.value)) {
         storage.set('upcoming', episodes.value, 86400000); // A day in milliseconds according to Google.
-        populateUpcoming(episodes.value, $scope);
+        populateCollection(episodes.value, $scope);
       } else {
         error.setHeader('Can not connect to the server, try again later').show();
       }
@@ -68,7 +68,7 @@ EHM.factory('upcomingRepositories', function($http, storage, auth, error, imageC
   upcomingRepositories.populate = function($scope) {
     var episodes = storage.get('upcoming');
     if (episodes !== null) {
-      populateUpcoming(episodes, $scope);
+      populateCollection(episodes, $scope);
       if (storage.isObsolete()) {
         this.updateList($scope);
       }
