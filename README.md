@@ -1,6 +1,8 @@
 Episodehunter Mobile [![Build Status](https://travis-ci.org/tjoskar/Episodehunter-mobile.png?branch=master)](https://travis-ci.org/tjoskar/Episodehunter-mobile)
 ===================
 
+## This project is not under development, see [episodehunter.tv](https://github.com/tjoskar/episodehunter.tv) instead.
+
 A complementary APP for EpisodeHunter.tv
 
 This app is written in javascript and HTML with [PhoneGap](http://phonegap.com/) and [Angular](http://angularjs.org/).
